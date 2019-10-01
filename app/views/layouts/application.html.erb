@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Grammable</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+    <div class="float-right">
+      <title>Grammable</title>
+      <%= csrf_meta_tags %>
+      <%= csp_meta_tag %>
+    </div>
+    
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -19,9 +22,12 @@
         </div>
         <div class="add float-right">
           <% if current_user %>
-            Welcome, <%= current_user.email %>.
-            <%= link_to "New Post", new_gram_path %>
-            <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+            <br>
+            <div class="float-right"> 
+              Welcome, <%= current_user.email %>.
+              <%= link_to "New Post", new_gram_path %>
+              <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+            </div>
           <% else %>
             <%= link_to "Sign In", new_user_session_path %>
             <%= link_to "Sign Up", new_user_registration_path %>
@@ -30,20 +36,6 @@
       </div>
       <br class="clear-fix" />
     </div>
-    <% if current_user %>
-      You're signed in as <%= current_user.email %>.
-      <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "Sign In", new_user_session_path %>
-      <%= link_to "Sign Up", new_user_registration_path %>
-    <% end %>
-    <% if notice.present? %>
-      <p class="notice"><%= notice %></p>
-    <% end %>
-
-    <% if alert.present? %>
-      <p class="alert"><%= alert %></p>
-    <% end %>
 
     <%= yield %>
   </body>
