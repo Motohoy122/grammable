@@ -79,5 +79,5 @@ gem 'simple_form'
 gem 'devise'
 
 gem "fog-aws"
-gem 'carrierwave', '~> 2.0'
+gem 'carrierwave', '~> 2.1'
 gem "figaro"
